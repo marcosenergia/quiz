@@ -1,0 +1,650 @@
+/* ======================================
+   VARIÁVEIS CSS - TEMA CLARO E ESCURO
+   ====================================== */
+
+:root {
+    /* Cores Corporativas Energisa */
+    --color-orange: #F37021;
+    --color-blue: #009FC2;
+    --color-green: #71BF54;
+    --color-green-dark: #1A6600;
+    --color-green-water: #00A6A5;
+    --color-yellow: #FFCA28;
+    --color-gray-light: #E2E2E2;
+    --color-gray-dark: #808080;
+    --color-white: #FFFFFF;
+    
+    /* Tema Claro (padrão) */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --bg-card: #FFFFFF;
+    --text-primary: #212529;
+    --text-secondary: #6C757D;
+    --border-color: #DEE2E6;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.12);
+    
+    /* Estados */
+    --color-success: #71BF54;
+    --color-error: #DC3545;
+    --color-hover: rgba(243, 112, 33, 0.1);
+    
+    /* Transições */
+    --transition-speed: 0.3s;
+}
+
+/* Tema Escuro */
+body.dark-mode {
+    --bg-primary: #1A1A1A;
+    --bg-secondary: #2D2D2D;
+    --bg-card: #252525;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0B0;
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+    --color-hover: rgba(243, 112, 33, 0.2);
+}
+
+/* ======================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ====================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* ======================================
+   BOTÃO DE TOGGLE TEMA
+   ====================================== */
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 4px 12px var(--shadow-hover);
+}
+
+.theme-icon {
+    transition: transform var(--transition-speed);
+}
+
+/* ======================================
+   CONTAINER PRINCIPAL
+   ====================================== */
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    padding: 40px;
+    transition: all var(--transition-speed);
+}
+
+/* ======================================
+   TELAS
+   ====================================== */
+
+.screen {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======================================
+   TELA INICIAL
+   ====================================== */
+
+.welcome-content {
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    color: var(--color-orange);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--color-blue);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.welcome-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {
+    margin-bottom: 30px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all var(--transition-speed);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(0, 159, 194, 0.1);
+}
+
+/* ======================================
+   BOTÕES
+   ====================================== */
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-blue) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(243, 112, 33, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 112, 33, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* ======================================
+   BARRA DE PROGRESSO
+   ====================================== */
+
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-blue) 0%, var(--color-green) 100%);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    width: 20%;
+}
+
+.progress-text {
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* ======================================
+   CARD DA PERGUNTA
+   ====================================== */
+
+.question-card {
+    background: var(--bg-primary);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 2px solid var(--border-color);
+}
+
+.question-title {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* ======================================
+   OPÇÕES DE RESPOSTA
+   ====================================== */
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-btn {
+    padding: 20px;
+    font-size: 1rem;
+    text-align: left;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-hover);
+    transition: left var(--transition-speed);
+    z-index: 0;
+}
+
+.option-btn:hover::before {
+    left: 0;
+}
+
+.option-btn:hover {
+    border-color: var(--color-blue);
+    transform: translateX(5px);
+}
+
+.option-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.option-btn.correct {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    color: white;
+    animation: pulseCorrect 0.6s ease;
+}
+
+.option-btn.incorrect {
+    background: var(--color-error);
+    border-color: var(--color-error);
+    color: white;
+    animation: shakeIncorrect 0.5s ease;
+}
+
+.option-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@keyframes pulseCorrect {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes shakeIncorrect {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* ======================================
+   FEEDBACK
+   ====================================== */
+
+.feedback {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    animation: slideDown 0.4s ease;
+}
+
+.feedback.hidden {
+    display: none;
+}
+
+.feedback-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feedback-icon {
+    font-size: 2.5rem;
+}
+
+.feedback-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.feedback.correct {
+    background: rgba(113, 191, 84, 0.1);
+    border: 2px solid var(--color-success);
+    color: var(--color-success);
+}
+
+.feedback.incorrect {
+    background: rgba(220, 53, 69, 0.1);
+    border: 2px solid var(--color-error);
+    color: var(--color-error);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======================================
+   TELA DE RESULTADOS
+   ====================================== */
+
+.results-content {
+    text-align: center;
+}
+
+.results-header {
+    margin-bottom: 30px;
+}
+
+.trophy-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.results-title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.score-display {
+    margin: 40px 0;
+}
+
+.score-circle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-blue) 100%);
+    box-shadow: 0 8px 30px rgba(243, 112, 33, 0.3);
+    animation: scaleUp 0.6s ease;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.score-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}
+
+.score-total {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.performance-message {
+    background: var(--bg-primary);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+    border: 2px solid var(--border-color);
+}
+
+.performance-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-blue);
+}
+
+.performance-message p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.results-details {
+    background: var(--bg-primary);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+    border: 2px solid var(--border-color);
+}
+
+.results-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.detail-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.detail-value.correct {
+    color: var(--color-success);
+}
+
+.detail-value.incorrect {
+    color: var(--color-error);
+}
+
+/* ======================================
+   RESPONSIVIDADE
+   ====================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .welcome-text {
+        font-size: 1rem;
+    }
+    
+    .question-title {
+        font-size: 1.2rem;
+    }
+    
+    .option-btn {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+    
+    .score-circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .score-number {
+        font-size: 3rem;
+    }
+    
+    .results-title {
+        font-size: 1.5rem;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .main-title {
+        font-size: 1.7rem;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* ======================================
+   ACESSIBILIDADE
+   ====================================== */
+
+*:focus {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+}
+
+button:focus-visible {
+    outline: 3px solid var(--color-blue);
+}
+
+/* Reduzir animações para usuários com preferência */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

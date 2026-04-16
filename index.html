@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quiz Educativo RH ETO - Energisa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Toggle de Tema -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Tela Inicial -->
+        <div class="screen" id="welcomeScreen">
+            <div class="welcome-content">
+                <div class="logo-container">
+                    <img src="assets/logo.png" alt="Grupo Energisa" class="logo" onerror="this.style.display='none'">
+                </div>
+                
+                <h1 class="main-title">Quiz Educativo</h1>
+                <h2 class="subtitle">Sistemas & Processos</h2>
+                
+                <p class="welcome-text">
+                    Bem-vindo ao Quiz RH ETO! 
+                    Este quiz foi desenvolvido para ajudar gestores a compreender melhor as regras, 
+                    prazos das movimentações no sistema FLUIG.
+                </p>
+                
+                <div class="input-group">
+                    <label for="userName">Qual seu nome?</label>
+                    <input 
+                        type="text" 
+                        id="userName" 
+                        placeholder="Seu nome (Apelido)"
+                        maxlength="50"
+                        autocomplete="name"
+                    >
+                </div>
+                
+                <button class="btn btn-primary" id="startBtn">
+                    Iniciar Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- Tela do Quiz -->
+        <div class="screen hidden" id="quizScreen">
+            <!-- Barra de Progresso -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                <p class="progress-text" id="progressText">Pergunta 1 de 5</p>
+            </div>
+
+            <!-- Área da Pergunta -->
+            <div class="question-card">
+                <h3 class="question-title" id="questionTitle">Pergunta aparecerá aqui</h3>
+                
+                <div class="options-container" id="optionsContainer">
+                    <!-- Opções serão inseridas dinamicamente -->
+                </div>
+            </div>
+
+            <!-- Feedback -->
+            <div class="feedback hidden" id="feedback">
+                <div class="feedback-content">
+                    <span class="feedback-icon" id="feedbackIcon"></span>
+                    <p class="feedback-text" id="feedbackText"></p>
+                </div>
+            </div>
+
+            <!-- Botão Próxima -->
+            <button class="btn btn-primary hidden" id="nextBtn">
+                Próxima Pergunta
+            </button>
+        </div>
+
+        <!-- Tela Final -->
+        <div class="screen hidden" id="resultsScreen">
+            <div class="results-content">
+                <div class="results-header">
+                    <div class="trophy-icon">🏆</div>
+                    <h2 class="results-title">Parabéns, <span id="finalUserName"></span>!</h2>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span class="score-number" id="finalScore">0</span>
+                        <span class="score-total">/ 5</span>
+                    </div>
+                </div>
+                
+                <div class="performance-message" id="performanceMessage">
+                    <!-- Mensagem será inserida dinamicamente -->
+                </div>
+                
+                <div class="results-details">
+                    <h4>Resumo do Desempenho:</h4>
+                    <div class="detail-item">
+                        <span class="detail-label">Respostas Corretas:</span>
+                        <span class="detail-value correct" id="correctCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Respostas Incorretas:</span>
+                        <span class="detail-value incorrect" id="incorrectCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Aproveitamento:</span>
+                        <span class="detail-value" id="percentageScore">0%</span>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="restartBtn">
+                    Refazer Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
